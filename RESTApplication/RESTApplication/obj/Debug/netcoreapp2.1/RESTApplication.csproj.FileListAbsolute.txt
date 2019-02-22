@@ -1,0 +1,14 @@
+C:\Users\pablo\source\repos\RESTApplication\RESTApplication\bin\Debug\netcoreapp2.1\RESTApplication.deps.json
+C:\Users\pablo\source\repos\RESTApplication\RESTApplication\bin\Debug\netcoreapp2.1\RESTApplication.runtimeconfig.json
+C:\Users\pablo\source\repos\RESTApplication\RESTApplication\bin\Debug\netcoreapp2.1\RESTApplication.runtimeconfig.dev.json
+C:\Users\pablo\source\repos\RESTApplication\RESTApplication\bin\Debug\netcoreapp2.1\RESTApplication.dll
+C:\Users\pablo\source\repos\RESTApplication\RESTApplication\bin\Debug\netcoreapp2.1\RESTApplication.pdb
+C:\Users\pablo\source\repos\RESTApplication\RESTApplication\obj\Debug\netcoreapp2.1\RESTApplication.csprojAssemblyReference.cache
+C:\Users\pablo\source\repos\RESTApplication\RESTApplication\obj\Debug\netcoreapp2.1\RESTApplication.csproj.CoreCompileInputs.cache
+C:\Users\pablo\source\repos\RESTApplication\RESTApplication\obj\Debug\netcoreapp2.1\RESTApplication.RazorAssemblyInfo.cache
+C:\Users\pablo\source\repos\RESTApplication\RESTApplication\obj\Debug\netcoreapp2.1\RESTApplication.RazorAssemblyInfo.cs
+C:\Users\pablo\source\repos\RESTApplication\RESTApplication\obj\Debug\netcoreapp2.1\RESTApplication.AssemblyInfoInputs.cache
+C:\Users\pablo\source\repos\RESTApplication\RESTApplication\obj\Debug\netcoreapp2.1\RESTApplication.AssemblyInfo.cs
+C:\Users\pablo\source\repos\RESTApplication\RESTApplication\obj\Debug\netcoreapp2.1\RESTApplication.RazorTargetAssemblyInfo.cache
+C:\Users\pablo\source\repos\RESTApplication\RESTApplication\obj\Debug\netcoreapp2.1\RESTApplication.dll
+C:\Users\pablo\source\repos\RESTApplication\RESTApplication\obj\Debug\netcoreapp2.1\RESTApplication.pdb
