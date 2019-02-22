@@ -11,11 +11,11 @@ namespace RESTApplication.Controllers
 {
     [Produces("application/json")]
     [Route("api/farmacia")]
-    public class ClienteController : Controller
+    public class FarmaciaController : Controller
     {
-        private readonly BombaTicaDB context;
+        private readonly BombaTicaDBContext context;
 
-        public ClienteController(BombaTicaDB context)
+        public FarmaciaController(BombaTicaDBContext context)
         {
             this.context = context;
         }
@@ -23,14 +23,14 @@ namespace RESTApplication.Controllers
         [HttpGet]
         public IEnumerable<Farmacia> GetFarmacias()
         {
-            return context.bombaTicaDB.Include(x => x.clientes).ToList();
+            return context.bombaTicaDB.ToList();
         }
 
 
-        [HttpGet("{nombre}", Name = "farmaciaCreada")]
-        public IActionResult GetById(string nombre)
+        [HttpGet("{empresa}", Name = "farmaciaCreada")]
+        public IActionResult GetById(string empresa)
         {
-            var farmacia = context.bombaTicaDB.FirstOrDefault(x => x.empresa == nombre);
+            var farmacia = context.bombaTicaDB.Include(x => x.clientes).FirstOrDefault(x => x.empresa == empresa);
 
             if (farmacia == null)
             {

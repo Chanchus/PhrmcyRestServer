@@ -7,15 +7,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RESTApplication.Models;
 
-/*namespace RESTApplication.Controllers
+namespace RESTApplication.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Cliente")]
+    [Route("api/Farmacia/{Farmacia}/Cliente")]
     public class ClienteController : Controller
     {
-        private readonly BombaTicaDB context;
+        private readonly BombaTicaDBContext context;
 
-        public ClienteController(BombaTicaDB context)
+        public ClienteController(BombaTicaDBContext context)
         {
             this.context = context;
         }
@@ -92,4 +92,4 @@ using RESTApplication.Models;
         }
 
     }
-}*/
+}

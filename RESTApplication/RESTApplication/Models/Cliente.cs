@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -22,5 +23,8 @@ namespace RESTApplication.Models
         public string nacimiento { get; set; }
         [MinLength(8), MaxLength(8)]
         public string telefono { get; set; }
+
+        [ForeignKey("farmacia")]
+        public string farmacia { get; set; }
     }
 }

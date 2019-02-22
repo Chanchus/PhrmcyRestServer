@@ -27,7 +27,7 @@ namespace RESTApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BombaTicaDB>(options =>
+            services.AddDbContext<BombaTicaDBContext>(options =>
             options.UseInMemoryDatabase("bombaTicaDB"));
 
             services.AddDbContext<PhischelDB>(options =>
@@ -43,7 +43,7 @@ namespace RESTApplication
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, BombaTicaDB bombaTicaDBContext, PhischelDB phischelDBContext)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, BombaTicaDBContext bombaTicaDBContext, PhischelDB phischelDBContext)
         {
             if (env.IsDevelopment())
             {
