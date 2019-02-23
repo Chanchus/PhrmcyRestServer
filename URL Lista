@@ -1,0 +1,42 @@
+
+<<<< el IP puede variar>>>>
+
+                 < (IP) >
+https://localhost:44361/api/farmacia  --- Lista de todas las farmacias
+
+https://localhost:44361/api/farmacia/{nombre}/ ----- obtiene una farmacia de nombre {nombre}
+
+
+https://localhost:44361/api/farmacia/{nombre}/cliente ----- obtiene todos los clientes
+
+https://localhost:44361/api/farmacia/{nombre}/cliente/{cedula} ----- obtiene el cliente con cedula especificada
+
+
+https://localhost:44361/api/farmacia/{nombre}/doctor ----- obtiene todos los doctores
+
+https://localhost:44361/api/farmacia/{nombre}/doctor/{cedula} ----- obtiene el doctor con cedula especificada
+
+
+https://localhost:44361/api/farmacia/{nombre}/medicamento ----- obtiene todos los medicamentos
+
+https://localhost:44361/api/farmacia/{nombre}/medicamento/{nombre} ----- obtiene el medicamento con nombre especificado
+
+
+
+https://localhost:44361/api/farmacia/{nombre}/medicamento ----- obtiene todos los medicamentos
+
+https://localhost:44361/api/farmacia/{nombre}/medicamento/{nombre} ----- obtiene el medicamento con nombre especificado
+
+
+https://localhost:44361/api/farmacia/{nombre}/pedido ----- obtiene todos los pedidos
+
+https://localhost:44361/api/farmacia/{nombre}/pedido/{id} ----- obtiene el pedido con id especificado
+
+
+=========== aun no esta  =============
+
+https://localhost:44361/api/farmacia/{nombre}/sucursal ----- obtiene todos las sucursales
+
+https://localhost:44361/api/farmacia/{nombre}/sucursal/{nombre} ----- obtiene la sucursal con nombre especificado
+
+
