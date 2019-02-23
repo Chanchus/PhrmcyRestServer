@@ -13,9 +13,9 @@ namespace RESTApplication.Controllers
     [Route("api/Farmacia/{Farmacia}/Cliente")]
     public class ClienteController : Controller
     {
-        private readonly BombaTicaDBContext context;
+        private readonly ApplicationDBContext context;
 
-        public ClienteController(BombaTicaDBContext context)
+        public ClienteController(ApplicationDBContext context)
         {
             this.context = context;
         }
@@ -52,7 +52,7 @@ namespace RESTApplication.Controllers
             {
                 context.Clientes.Add(cliente);
                 context.SaveChanges();
-                return new CreatedAtRouteResult("clienteCreado", new { nombre = cliente.nombre }, cliente);
+                return new CreatedAtRouteResult("clienteCreado", new { cedula = cliente.cedula }, cliente);
             }
 
 

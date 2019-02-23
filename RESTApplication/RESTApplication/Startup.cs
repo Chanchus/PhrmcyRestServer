@@ -27,11 +27,10 @@ namespace RESTApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BombaTicaDBContext>(options =>
-            options.UseInMemoryDatabase("bombaTicaDB"));
+            services.AddDbContext<ApplicationDBContext>(options =>
+            options.UseInMemoryDatabase("FarmaciasDB"));
 
-            services.AddDbContext<PhischelDB>(options =>
-            options.UseInMemoryDatabase("phischelDB"));
+
 
             services.AddMvc().AddJsonOptions(ConfigureJson);
                 //.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -43,7 +42,7 @@ namespace RESTApplication
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, BombaTicaDBContext bombaTicaDBContext, PhischelDB phischelDBContext)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ApplicationDBContext context)
         {
             if (env.IsDevelopment())
             {
@@ -58,35 +57,45 @@ namespace RESTApplication
             app.UseHttpsRedirection();
             app.UseMvc();
 
-            if(!bombaTicaDBContext.bombaTicaDB.Any())
+            if (!context.Farmacias.Any())
             {
-                bombaTicaDBContext.bombaTicaDB.AddRange(
-                    new Farmacia(){
-                    
-                    clientes = new List<Cliente>()
+                context.Farmacias.AddRange(
+                    new Farmacia() {
+
+                        empresa = "Bomba Tica",
+                        clientes = new List<Cliente>()
                     {
                         new Cliente(){nombre = "Pablo", apellidos = "esq mor", cedula = "2348489", nacimiento = "hoy", telefono = "89898898"},
                         new Cliente(){nombre = "marquito", apellidos = "riv", cedula = "2456679", nacimiento = "ayer", telefono = "89876598"}
 
 
                     },
-                    doctores = new List<Doctor>()
+                        doctores = new List<Doctor>()
                     {
                         new Doctor() { nombre = "marco", apellidos = "rivera", cedula = "2432423"},
                         new Doctor() { nombre = "Doctor1", apellidos = "esq mor", cedula = "2348489"}
 
                     },
-                    pedidos = new List<Pedido>() { },
+                        pedidos = new List<Pedido>()
+                    {
+                        new Pedido() { medicamentos = "acetaminofen, tabcin",
+                                        sucursal = "cartago", horaRecojo = "manana", receta =" el doctor dijo acetaminofen master race",
+                                        cedulaCliente = "2348489" }
+
+                    },
                     sucursales = new List<Sucursal>() { },
-                    medicamentos = new List<Medicamento>() { },
 
+                    medicamentos = new List<Medicamento>()
+                    {
+                        new Medicamento() { farmaceutica = "fabricante??", nombre = "acetaminofen", prescripcion = "no", stock = 500},
+                        new Medicamento() { farmaceutica = "fabricante??", nombre = "tabcin", prescripcion = "no", stock = 500}
 
-                    empresa = "Bomba Tica"
+                    }
 
 
                     });
 
-                bombaTicaDBContext.SaveChanges();
+                context.SaveChanges();
             }
 
   

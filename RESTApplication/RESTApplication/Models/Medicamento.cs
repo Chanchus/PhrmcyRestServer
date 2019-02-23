@@ -11,8 +11,14 @@ namespace RESTApplication.Models
         [Key]
         [Required]
         public string nombre { get; set; }
+
+        [Required]
         public string farmaceutica { get; set; }
+
+        [Required]
         public string prescripcion { get; set; }
+
+        [Required]
         public int stock { get; set; }
 
     }

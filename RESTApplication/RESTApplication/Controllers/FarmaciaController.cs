@@ -13,9 +13,9 @@ namespace RESTApplication.Controllers
     [Route("api/farmacia")]
     public class FarmaciaController : Controller
     {
-        private readonly BombaTicaDBContext context;
+        private readonly ApplicationDBContext context;
 
-        public FarmaciaController(BombaTicaDBContext context)
+        public FarmaciaController(ApplicationDBContext context)
         {
             this.context = context;
         }
@@ -23,14 +23,20 @@ namespace RESTApplication.Controllers
         [HttpGet]
         public IEnumerable<Farmacia> GetFarmacias()
         {
-            return context.bombaTicaDB.ToList();
+            return context.Farmacias.ToList();
         }
 
 
         [HttpGet("{empresa}", Name = "farmaciaCreada")]
         public IActionResult GetById(string empresa)
         {
-            var farmacia = context.bombaTicaDB.Include(x => x.clientes).FirstOrDefault(x => x.empresa == empresa);
+            var farmacia = context.Farmacias
+                .Include(x => x.clientes)
+                .Include(x => x.doctores)
+                .Include(x => x.medicamentos)
+                .Include(x => x.pedidos)
+                .Include(x => x.sucursales)
+                .FirstOrDefault(x => x.empresa == empresa);
 
             if (farmacia == null)
             {
@@ -50,7 +56,7 @@ namespace RESTApplication.Controllers
 
             if (ModelState.IsValid)
             {
-                context.bombaTicaDB.Add(farmacia);
+                context.Farmacias.Add(farmacia);
                 context.SaveChanges();
                 return new CreatedAtRouteResult("farmaciaCreada", new { nombre = farmacia.empresa }, farmacia);
             }
@@ -78,14 +84,14 @@ namespace RESTApplication.Controllers
         [HttpDelete("{nombre}")]
         public IActionResult Delete(string nombre)
         {
-            var farmacia = context.bombaTicaDB.FirstOrDefault(x => x.empresa == nombre);
+            var farmacia = context.Farmacias.FirstOrDefault(x => x.empresa == nombre);
 
             if (farmacia == null)
             {
                 return NotFound();
             }
 
-            context.bombaTicaDB.Remove(farmacia);
+            context.Farmacias.Remove(farmacia);
             context.SaveChanges();
             return Ok(farmacia);
 

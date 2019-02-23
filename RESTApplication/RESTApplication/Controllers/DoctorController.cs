@@ -7,37 +7,37 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RESTApplication.Models;
 
-/*namespace RESTApplication.Controllers
+namespace RESTApplication.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Doctor")]
+    [Route("api/Farmacia/{Farmacia}/Doctor")]
     public class DoctorController : Controller
     {
-        private readonly PhischelDB context;
+        private readonly ApplicationDBContext context;
 
-        public DoctorController(PhischelDB context)
+        public DoctorController(ApplicationDBContext context)
         {
             this.context = context;
         }
 
         [HttpGet]
-        public IEnumerable<Doctor> GetClientes()
+        public IEnumerable<Doctor> GetDoctores()
         {
             return context.Doctores.ToList();
         }
 
 
-        [HttpGet("{nombre}", Name = "doctorCreado")]
-        public IActionResult GetById(string nombre)
+        [HttpGet("{cedula}", Name = "doctorCreado")]
+        public IActionResult GetById(string cedula)
         {
-            var cliente = context.Doctores.FirstOrDefault(x => x.nombre == nombre);
+            var doctor = context.Doctores.FirstOrDefault(x => x.cedula == cedula);
 
-            if (cliente == null)
+            if (doctor == null)
             {
                 return NotFound();
             }
 
-            return Ok(cliente);
+            return Ok(doctor);
 
         }
 
@@ -45,46 +45,51 @@ using RESTApplication.Models;
         [HttpPost]
         public IActionResult Post([FromBody] Doctor doctor)
         {
+
+
+
             if (ModelState.IsValid)
             {
                 context.Doctores.Add(doctor);
                 context.SaveChanges();
-                return new CreatedAtRouteResult("doctorCreado", new { id = doctor.id }, doctor);
+                return new CreatedAtRouteResult("doctorCreado", new { cedula = doctor.cedula }, doctor);
             }
+
+
 
             return BadRequest(ModelState);
         }
 
 
-        [HttpPut("{id}")]
-        public IActionResult Put([FromBody] Cliente cliente, int id)
+        [HttpPut("{cedula}")]
+        public IActionResult Put([FromBody] Doctor doctor, string cedula)
         {
-            if (cliente.id != id)
+            if (doctor.cedula != cedula)
             {
                 return BadRequest();
             }
 
-            context.Entry(cliente).State = EntityState.Modified;
+            context.Entry(doctor).State = EntityState.Modified;
             context.SaveChanges();
             return Ok();
         }
 
 
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        [HttpDelete("{cedula}")]
+        public IActionResult Delete(string cedula)
         {
-            var cliente = context.Doctores.FirstOrDefault(x => x.id == id);
+            var doctor = context.Doctores.FirstOrDefault(x => x.cedula == cedula);
 
-            if (cliente == null)
+            if (doctor == null)
             {
                 return NotFound();
             }
 
-            context.Doctores.Remove(cliente);
+            context.Doctores.Remove(doctor);
             context.SaveChanges();
-            return Ok(cliente);
+            return Ok(doctor);
 
         }
 
     }
-}*/
+}
