@@ -93,7 +93,14 @@ namespace RESTApplication
                     }
 
 
-                    });
+                    },
+                    
+                    new Farmacia() {
+                        
+                        empresa = "phischel"
+                        
+                        
+                        });
 
                 context.SaveChanges();
             }

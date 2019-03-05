@@ -10,7 +10,7 @@ using RESTApplication.Models;
 namespace RESTApplication.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Farmacia/{Farmacia}/Cliente")]
+    [Route("api/Farmacia/{Farmacia}/Pedido")]
     public class PedidoController : Controller
     {
         private readonly ApplicationDBContext context;
